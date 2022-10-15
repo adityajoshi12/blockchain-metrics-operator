@@ -1,0 +1,31 @@
+# permissions for end users to edit ccps.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: ccp-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: blockchain-metrics-operator
+    app.kubernetes.io/part-of: blockchain-metrics-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: ccp-editor-role
+rules:
+- apiGroups:
+  - metrics.blockchain.com
+  resources:
+  - ccps
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - metrics.blockchain.com
+  resources:
+  - ccps/status
+  verbs:
+  - get

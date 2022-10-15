@@ -1,0 +1,6 @@
+domain: blockchain.com
+layout:
+- go.kubebuilder.io/v3
+projectName: blockchain-metrics-operator
+repo: blockchain.com/blockchain
+version: "3"

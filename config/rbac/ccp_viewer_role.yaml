@@ -1,0 +1,27 @@
+# permissions for end users to view ccps.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: ccp-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: blockchain-metrics-operator
+    app.kubernetes.io/part-of: blockchain-metrics-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: ccp-viewer-role
+rules:
+- apiGroups:
+  - metrics.blockchain.com
+  resources:
+  - ccps
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - metrics.blockchain.com
+  resources:
+  - ccps/status
+  verbs:
+  - get

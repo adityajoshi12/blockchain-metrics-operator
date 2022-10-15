@@ -1,0 +1,81 @@
+apiVersion: metrics.blockchain.com/v1
+kind: CCP
+metadata:
+  labels:
+    app.kubernetes.io/name: ccp
+    app.kubernetes.io/instance: ccp-sample
+    app.kubernetes.io/part-of: blockchain-metrics-operator
+    app.kuberentes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: blockchain-metrics-operator
+  name: ccp-sample
+spec:
+  connectionProfile:
+      name: fabric-network
+      version: 1.0.0
+      client:
+        organization: fspdevwal01
+      channels:
+        _default:
+          peers:
+            peer0.org1.example.com:
+              chaincodeQuery: true
+              discover: true
+              endorsingPeer: true
+              eventSource: true
+              ledgerQuery: true
+      organizations:
+        Org1MSP:
+          mspid: Org1MSP
+          users:
+            admin:
+              cert:
+                pem: |
+                  -----BEGIN CERTIFICATE-----
+                  MIIC7jCCApSgAwIBAgIUEVxKSRNZxPur3pVhXd3ooa4nEwUwCgYIKoZIzj0EAwIw
+                  aTELMAkGA1UEBhMCVVMxETAPBgNVBAgMCEFya2Fuc2FzMRQwEgYDVQQHDAtCZW50
+                  b252aWxsZTEUMBIGA1UECgwLZnNwZGV2d2FsMDExGzAZBgNVBAMMEmNhLmZzcGRl
+                  dndhbDAxLWaVBAoTC2ZzcGRldndhbDAxMQ4wDAYDVQQLEwVhZG1pbjEeMBwGA1UE
+                  AwwVQWRtaW5AZnNwZGV2d2FsMDEtbmV0MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcD
+                  QgAEMnAF0weW6tfU8xGSizU5V8ZsC/n8i87jKJiLduUWS200axycW1gpYkECVOML
+                  ZJdqtEbEuVHmhk9MgaD4u15XVKOCAQUwggEBMA4GA1UdDwEB/wQEAwIHgDAMBgNV
+                  HRMBAf8EAjAAMB0GA1UdDgQWBBQQZqa/P5JBT7ZEIoHJ5/jHIzgqaDAfBgNVHSME
+                  GDAWgBRnwK3uOf2iyKOc4+aDoS61Hb2v9jAVBgNVHREEDjAMggpjYS10b29scy0w
+                  MIGJBggqAwQFBgcIAQR9eyJhdHRycyI6eyJhYmFjLmluaXQiOiJ0cnVlIiwiYWRt
+                  aW4iOiJ0cnVlIiwiaGYuQWZmaWxpYXRpb24iOiIiLCJoZi5FbnJvbGxtZW50SUQi
+                  OiJBZG1pbkBmc3BkZXZ3YWwwMS1uZXQiLCJoZi5UeXBlIjoiYWRtaW4ifX0wCgYI
+                  KoZIzj0EAwIDSAAwRQIhAKNJ3hYnaZZqSzU9z2qU+1czbAxsQoZY/BCl59xP2kNu
+                  AiAN/AAY46thnXxo3ZzzhTJL0l0/MaXomei/Y5ob5hiLgQ==
+                  -----END CERTIFICATE-----
+              key:
+                pem: |
+                  -----BEGIN PRIVATE KEY-----
+                  MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawzGLE8ptqguQ+/VdF
+                  5G+IlQus/vRwwx/7r20WhRANCAAQycAXTB5bq19TzEZKLNTlXxmwL+fyL
+                  zuMomIt25RZLbTRrHJxU4wtkl2q0RsS5UeaGT0yBoPi7XldU
+                  -----END PRIVATE KEY-----
+          peers:
+            - peer0.org1.example.com
+      peers:
+        peer0.org1.example.com:
+          url: grpcs://peer0.org1.example.com:8443
+          tlsCACerts:
+            pem: |
+              -----BEGIN CERTIFICATE-----
+              MIICFjCCAbygAwIBAgIUfU0sJbXLkzTG8rhN+eEn1ZxfrWgwCgYIKoZIzj0EAwIw
+              aTELMAkGA1UEBhMCVVMxETAPBgNVBAgMCEFya2Fuc2FzMRQwEgYDVQQHDAtCZW50
+              b252aWxsZTEUMBIGA1UECgwLZnNwZGV2d2FsMDExGzAZBgNVBAMMEmNhLmZzcGRl
+              dndhbDAxLW5ldDAeFw0yMTEwMDEwODUyMzhaFw0yNDA3MjEwODUyMzhaMGkxCzAJ
+              MS1uZXQwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQ9PxWPPles3nFJVc84ieCj
+              kLkLT1L5UTVXVIONXc0+CM//8WxtSI+dc421oINx78LRkJyXaUOAhwS+3RPR8w/v
+              o0IwQDAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBpjAdBgNVHQ4EFgQU
+              Z8Ct7jn9osijnOPmg6EutR29r/YwCgYIKoZIzj0EAwIDSAAwRQIgFKWmGcJfjNZf
+              FeVc29cym5k3dOiQqFAiE9f9wlquQL8CIQCBcV5GUbHrRl6qYzNcGeiOEWSsQzf+
+              Ay2te4eHCwRI3A==
+              -----END CERTIFICATE-----
+
+
+
+
+
+
+
